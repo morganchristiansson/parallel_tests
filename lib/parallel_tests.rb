@@ -43,6 +43,7 @@ class ParallelTests
 
   def self.execute_command(cmd, process_number, options)
     cmd = "TEST_ENV_NUMBER=#{test_env_number(process_number)} ; export TEST_ENV_NUMBER; #{cmd}"
+    puts "#{cmd}\n\n"
     f = open("|#{cmd}", 'r')
     output = fetch_output(f, options)
     f.close
